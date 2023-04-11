@@ -1,6 +1,10 @@
 const palindromes = function (string) {
   let originalString = removePunctuationFromString(string);
   let reversedString = reverseString(originalString);
+
+  originalString = originalString.toUpperCase();
+  reversedString = reversedString.toUpperCase();
+
   return originalString === reversedString;
 };
 
@@ -28,4 +32,8 @@ function removePunctuationFromString(string) {
   }
   return stringArray.join('');
 }
+
+
+
+
 
