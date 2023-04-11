@@ -1,39 +1,34 @@
 const palindromes = function (string) {
-  let originalString = removePunctuationFromString(string);
-  let reversedString = reverseString(originalString);
-
-  originalString = originalString.toUpperCase();
-  reversedString = reversedString.toUpperCase();
-
-  return originalString === reversedString;
+  let originalStringArray = filterString(string);
+  let reversedArray = reverseArray(originalStringArray);
+return arrayToString(originalStringArray) === arrayToString(reversedArray);
 };
 
 // Do not edit below this line
 module.exports = palindromes;
 
-function reverseString(string) {
-  // create array
-  let stringArray = [];
-  //loop through string
-  for (const letter of string) {
-    //add letter to beginning of array
-    stringArray.unshift(letter);
-  }
-  //return array to string
-  return stringArray.join('');
+
+function filterString(string) {
+  let stringArray = string.split('');
+  let filteredStringArray = stringArray.filter(char => {
+    return char.toUpperCase() !== char.toLowerCase();
+  }).map(char => {
+    return char.toUpperCase();
+  })
+  return filteredStringArray;
 }
 
-function removePunctuationFromString(string) {
-  let stringArray = [];
-  for (const letter of string) {
-    if (letter.toUpperCase() !== letter.toLowerCase()) {
-      stringArray.push(letter);
-    }
+function reverseArray(array) {
+  let newArray = [];
+  for (const char of array) {
+    newArray.unshift(char);
   }
-  return stringArray.join('');
+  return newArray;
 }
 
-
+function arrayToString(array) {
+  return array.join('');
+}
 
 
 

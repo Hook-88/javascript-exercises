@@ -1,33 +1,14 @@
-const palindromes = function (string) {
-  let originalString = removePunctuationFromString(string);
-  let reversedString = reverseString(originalString);
-
-  originalString = originalString.toUpperCase();
-  reversedString = reversedString.toUpperCase();
-
-  return originalString === reversedString;
-};
-
-function reverseString(string) {
-  // create array
-  let stringArray = [];
-  //loop through string
-  for (const letter of string) {
-    //add letter to beginning of array
-    stringArray.unshift(letter);
-  }
-  //return array to string
-  return stringArray.join('');
+function isLetter(char) {
+  return char.toUpperCase() !== char.toLowerCase();
 }
 
-function removePunctuationFromString(string) {
-  let stringArray = [];
-  for (const letter of string) {
-    if (letter.toUpperCase() !== letter.toLowerCase()) {
-      stringArray.push(letter);
-    }
-  }
-  return stringArray.join('');
-}
-
-console.log(palindromes('Racecar!'));
+console.log(isLetter('a'));
+console.log(isLetter('b'));
+console.log(isLetter('c'));
+console.log(isLetter('!'));
+console.log(isLetter(','));
+console.log(isLetter('?'));
+console.log(isLetter('A'));
+console.log(isLetter('B'));
+console.log(isLetter('C'));
+console.log(isLetter(' '));
